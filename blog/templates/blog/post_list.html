@@ -11,7 +11,7 @@
                         <h2 class="post-title">
                                <h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
                         </h2>
-                        <p>{{ post.description|markdown}}</p>
+                        <p>{{ post.description|linebreaks}}</p>
                         <p class="post-meta">  {{ post.published_date }}</p>
                 </div>
                 <hr>
