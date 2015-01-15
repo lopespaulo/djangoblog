@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+
+
+   <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                {% block content %}
+                    {% for post in posts %}
+                        <h2 class="post-title">
+                               <h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                        </h2>
+                        <p>{{ post.description|markdown}}</p>
+                        <p class="post-meta">  {{ post.published_date }}</p>
+                </div>
+                <hr>
+                    {% endfor %}
+                {% endblock content%}
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="#">Posts Antigos &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
