@@ -24,8 +24,6 @@ DEBUG = False
 
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -57,13 +55,6 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -101,3 +92,8 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+
+try:
+    from mysite.local_settings import *
+except ImportError:
+    pass
